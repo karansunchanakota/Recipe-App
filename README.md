@@ -1,4 +1,4 @@
-# HES Recipes Project
+#Recipes Project
 
 Ruby Version: Ruby 2.5.3
 Bundle Version: 1.17.1
