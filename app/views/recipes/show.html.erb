@@ -1,0 +1,29 @@
+<h1>
+  <%= @recipe.title %>
+</h1>
+
+<ul>
+  <li>Servings: <%= @recipe.servings %></li>
+  <li>Cook Time:<%= @recipe.cook_time %>  minutes</li>
+  <li>Preparation Time: <%= @recipe.prep_time %>  minutes</li>
+  <li>Total Time: <%= @recipe.cook_time + @recipe.prep_time %> minutes</li>
+  
+</ul>
+<h3> Ingredients </h3>
+
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.item %></li>
+  <% end %>
+</ul>  
+
+<h3> Steps </h3>
+<ul>
+  <% @recipe.steps.each do |step| %>
+    <li><%= step.description %></li>
+  <% end %>
+</ul>  
+
+<%= link_to 'Edit', edit_recipe_path(@recipe), class: 'link-to-color btn' %>
+
+<%= link_to 'Back', :back, class: 'link-to-color btn' %>

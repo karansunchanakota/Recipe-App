@@ -1,0 +1,6 @@
+<h4>Add Ingredients</h4>
+  <div>
+    <%= form.fields_for :@ingredients do |recipe_ingredient| %>
+      <%= recipe_ingredient.text_area :item %>
+    <% end %>
+  </div>

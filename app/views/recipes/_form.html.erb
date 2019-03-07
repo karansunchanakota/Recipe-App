@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(@recipe) do |form| %>
+     
+  <%= form.text_field :title, placeholder: "Give your masterpiece a title..." %><br><br>
+  <%= form.text_field :prep_time, placeholder: "Preparation Time" %><br><br>
+  <%= form.text_field :cook_time, placeholder: "Cook Time" %><br><br>
+  <%= form.text_field :servings, placeholder: "How many servings?" %><br>
+  <div>
+    <b>Ingredients</b><br>
+    <%= form.nested_fields_for :ingredients do |ingredient| %> 
+
+      <%= ingredient.text_field :item, placeholder: "Ingredient {Press 'x' to remove ingredient}" %>
+      <%= ingredient.remove_nested_fields_link %>
+    
+    <% end %> 
+    <%=form.add_nested_fields_link :ingredients %>
+  </div>
+  <div>
+    <b>Steps</b><br>
+    <%= form.nested_fields_for :steps do |step| %> 
+
+      <%= step.text_field :description, placeholder: "Step {Press 'x' to remove step}" %>
+      <%= step.remove_nested_fields_link %>
+    
+    <% end %> 
+    <%=form.add_nested_fields_link :steps %>
+  </div>  
+
+  <%= form.submit "Submit" %>
+
+<% end %>
